@@ -9,7 +9,7 @@ class Kaleidoscope < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/paradise-runner/opencode/releases/download/v0.1.0/kaleidoscope-darwin-arm64.zip"
+      url "https://github.com/paradise-runner/kaleidoscope/releases/download/v0.1.0/kaleidoscope-darwin-arm64.zip"
       sha256 "061b9f79cb43a0cc52e277f1b94d3eb1a8d98d6fdd42533a9d60da20aa972e54"
 
       def install
