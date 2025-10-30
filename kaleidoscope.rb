@@ -5,12 +5,12 @@
 class Kaleidoscope < Formula
   desc "Run multiple AI models in parallel, compare outputs, choose the best solution"
   homepage "https://paradise-runner.github.io/kaleidoscope/"
-  version "0.1.0"
+  version "0.1.1"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/paradise-runner/kaleidoscope/releases/download/v0.1.0/kaleidoscope-darwin-arm64.zip"
-      sha256 "061b9f79cb43a0cc52e277f1b94d3eb1a8d98d6fdd42533a9d60da20aa972e54"
+      url "https://github.com/paradise-runner/kaleidoscope/releases/download/v0.1.1/kaleidoscope-darwin-arm64.zip"
+      sha256 "58577bb2c462a10b80d75fbe201a51d1ddfeae04fcfd453e92483b3a7f115110"
 
       def install
         bin.install "kaleidoscope"
