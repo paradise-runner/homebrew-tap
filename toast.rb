@@ -5,19 +5,19 @@
 class Toast < Formula
   desc "In-terminal IDE for quick file edits"
   homepage "https://github.com/paradise-runner/toast"
-  version "0.1.9"
+  version "0.1.10"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/paradise-runner/toast/releases/download/v0.1.9/toast-darwin-arm64.zip"
-      sha256 "8fb22250be998fad3e1fe9f3887620f7d832e1c0886a45ae8335e072b08c7050"
+      url "https://github.com/paradise-runner/toast/releases/download/v0.1.10/toast-darwin-arm64.zip"
+      sha256 "2f986ab1285ffd15f4876e482982acbe7c9797a4ae7acb7300b861cb859e1b57"
 
       def install
         bin.install "toast-darwin-arm64" => "toast"
       end
     else
-      url "https://github.com/paradise-runner/toast/releases/download/v0.1.9/toast-darwin-amd64.zip"
-      sha256 "0deac23e7729b1344531afbd516b05313c708b2582729d1e2aeec0c7c06e025f"
+      url "https://github.com/paradise-runner/toast/releases/download/v0.1.10/toast-darwin-amd64.zip"
+      sha256 "5c3a7ce84e8b67bb89cff4cb92e2f11a0933db988aace37a9af740be56b7254c"
 
       def install
         bin.install "toast-darwin-amd64" => "toast"
