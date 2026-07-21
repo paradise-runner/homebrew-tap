@@ -10,14 +10,14 @@ class Toast < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/paradise-runner/toast/releases/download/v0.2.1/toast-darwin-arm64.zip"
-      sha256 "ed8f018f76b76a6df44883ffbc38945c23ede58fa11f6488fd44a912727d9f47"
+      sha256 "fef54daa8d0972b9f9f343996a1f5bbba3957023e5e927ec40cc5cf5f61c849e"
 
       def install
         bin.install "toast-darwin-arm64" => "toast"
       end
     else
       url "https://github.com/paradise-runner/toast/releases/download/v0.2.1/toast-darwin-amd64.zip"
-      sha256 "2c330f1f8b3b647e7516b2115bd4e021f538f09a19b36b625980a1c9c548476e"
+      sha256 "7ab866cfc034e9ad0825c2ff644309d9155a1a66d2c5a35aafe70654869e74e3"
 
       def install
         bin.install "toast-darwin-amd64" => "toast"
