@@ -5,21 +5,29 @@
 class Toast < Formula
   desc "In-terminal IDE for quick file edits"
   homepage "https://github.com/paradise-runner/toast"
-  version "0.14.0"
+  version "0.14.1"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/paradise-runner/toast/releases/download/v0.14.0/toast-darwin-arm64.zip"
-      sha256 "206af3a0c91d3ebeb1a24429ec319d5574477a73822a04ac8b3ac9fcc929cbc4"
+      url "https://github.com/paradise-runner/toast/releases/download/v0.14.1/toast-darwin-arm64.zip"
+      sha256 "e0ac73f8eb69e87941965f3010bb9479ace1347b98d37e7ee37d0b2496ad78d6"
 
       def install
         bin.install "toast-darwin-arm64" => "toast"
       end
     else
+      # Intel macOS builds ended with v0.14.0, so Intel users stay
+      # frozen on that release. The url and version have to be spelled
+      # out here: leaving the branch without a url makes the formula
+      # fail to load on Intel with a confusing error, and inheriting
+      # the current version would claim vX.Y.Z while installing the
+      # v0.14.0 binary.
+      version "0.14.0"
       url "https://github.com/paradise-runner/toast/releases/download/v0.14.0/toast-darwin-amd64.zip"
       sha256 "c35843ba3c7fbdf512df2e774693318fc288de240c3bf0e058260dd19e7411a6"
 
       def install
+        opoo "toast stopped publishing Intel (amd64) macOS builds after v0.14.0; "              "this installs v0.14.0, the last release that supported Intel Macs"
         bin.install "toast-darwin-amd64" => "toast"
       end
     end
