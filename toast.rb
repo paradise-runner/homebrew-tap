@@ -10,7 +10,7 @@ class Toast < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/paradise-runner/toast/releases/download/v0.14.1/toast-darwin-arm64.zip"
-      sha256 "e0ac73f8eb69e87941965f3010bb9479ace1347b98d37e7ee37d0b2496ad78d6"
+      sha256 "1982f8eb48c01ebad322d6f1560a8ca43382e79eeac2a89ec922f8bcdcdc0e4f"
 
       def install
         bin.install "toast-darwin-arm64" => "toast"
@@ -27,7 +27,7 @@ class Toast < Formula
       sha256 "c35843ba3c7fbdf512df2e774693318fc288de240c3bf0e058260dd19e7411a6"
 
       def install
-        opoo "toast stopped publishing Intel (amd64) macOS builds after v0.14.0; "              "this installs v0.14.0, the last release that supported Intel Macs"
+        opoo "toast stopped shipping Intel macOS builds after v0.14.0; installing v0.14.0"
         bin.install "toast-darwin-amd64" => "toast"
       end
     end
