@@ -10,7 +10,7 @@ class Toast < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/paradise-runner/toast/releases/download/v0.14.2/toast-darwin-arm64.zip"
-      sha256 "8731f600bfa59520a874ec4bd663e86b898bc3a901210c0e106458b3ece9aeba"
+      sha256 "b2cacaff0b960a9c811b41fec31bf79132a6ae5aba42c6e76886f3e577eb049f"
 
       def install
         bin.install "toast-darwin-arm64" => "toast"
@@ -33,4 +33,24 @@ class Toast < Formula
     end
   end
 
+  # Homebrew on Linux (Linuxbrew) loads the same formula, so a
+  # missing on_linux branch makes  die with "formula
+  # requires at least a URL" before anything is downloaded (issue
+  # #105). The Linux asset exists, it just was not wired up here.
+  on_linux do
+    url "https://github.com/paradise-runner/toast/releases/download/v0.14.2/toast-linux-amd64.zip"
+    sha256 "276ec18a990a984f92930b5e673fcd63118fe1db155c303b114feaf684b4911c"
+
+    def install
+      # There is no Linux arm64 build yet. Homebrew needs a url on
+      # every platform it loads the formula on, so this branch points
+      # at the amd64 asset and refuses here with something actionable
+      # instead of the bare "requires at least a URL" error.
+      if Hardware::CPU.arm?
+        odie "toast ships no Linux arm64 build yet; use: go install github.com/paradise-runner/toast/cmd/toast@latest"
+      end
+
+      bin.install "toast-linux-amd64" => "toast"
+    end
+  end
 end
