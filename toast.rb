@@ -5,12 +5,12 @@
 class Toast < Formula
   desc "In-terminal IDE for quick file edits"
   homepage "https://github.com/paradise-runner/toast"
-  version "0.14.2"
+  version "0.15.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/paradise-runner/toast/releases/download/v0.14.2/toast-darwin-arm64.zip"
-      sha256 "9b56908e7a504308fac64d4096869bab9fbd36d51be59ce621121c92d6a2d08d"
+      url "https://github.com/paradise-runner/toast/releases/download/v0.15.0/toast-darwin-arm64.zip"
+      sha256 "41b712b873f16757fc382c2c75e60e874e9e5fdbc2d28359dde362c840c89ae7"
 
       def install
         bin.install "toast-darwin-arm64" => "toast"
@@ -38,8 +38,8 @@ class Toast < Formula
   # requires at least a URL" before anything is downloaded (issue
   # #105). The Linux asset exists, it just was not wired up here.
   on_linux do
-    url "https://github.com/paradise-runner/toast/releases/download/v0.14.2/toast-linux-amd64.zip"
-    sha256 "2d6761f842954b38207a31058bddcaf0eb3d2eace1733132cda3a09bb670a484"
+    url "https://github.com/paradise-runner/toast/releases/download/v0.15.0/toast-linux-amd64.zip"
+    sha256 "2580bed4b0cbe6fd438d0b85ea7d5a25e2974f7859dca6969447d2c3873685a6"
 
     def install
       # There is no Linux arm64 build yet. Homebrew needs a url on
