@@ -5,12 +5,12 @@
 class Toast < Formula
   desc "In-terminal IDE for quick file edits"
   homepage "https://github.com/paradise-runner/toast"
-  version "0.15.0"
+  version "0.15.1"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/paradise-runner/toast/releases/download/v0.15.0/toast-darwin-arm64.zip"
-      sha256 "41b712b873f16757fc382c2c75e60e874e9e5fdbc2d28359dde362c840c89ae7"
+      url "https://github.com/paradise-runner/toast/releases/download/v0.15.1/toast-darwin-arm64.zip"
+      sha256 "4332fa4bdd3f3f82c0dad76a20b0eb70d60071689a1ffb9f20dd4ce1fb792413"
 
       def install
         bin.install "toast-darwin-arm64" => "toast"
@@ -36,21 +36,23 @@ class Toast < Formula
   # Homebrew on Linux (Linuxbrew) loads the same formula, so a
   # missing on_linux branch makes "brew install" die with "formula
   # requires at least a URL" before anything is downloaded (issue
-  # #105). The Linux asset exists, it just was not wired up here.
+  # #105). Each CPU gets the asset built for it (issue #111): the
+  # url is chosen from the architecture at load time, and install picks
+  # the matching binary name, so arm64 never receives the amd64 build.
   on_linux do
-    url "https://github.com/paradise-runner/toast/releases/download/v0.15.0/toast-linux-amd64.zip"
-    sha256 "2580bed4b0cbe6fd438d0b85ea7d5a25e2974f7859dca6969447d2c3873685a6"
+    if Hardware::CPU.arm?
+      url "https://github.com/paradise-runner/toast/releases/download/v0.15.1/toast-linux-arm64.zip"
+      sha256 "87c5e3167f51ced98fbb46162aa0e370470da50fcac1b5e8a191acf4d1550566"
+    else
+      url "https://github.com/paradise-runner/toast/releases/download/v0.15.1/toast-linux-amd64.zip"
+      sha256 "3f8083259cf5664ff2c492f6cc7210ab85e5045fe38ff6bce874fdae8033d74e"
+    end
 
     def install
-      # There is no Linux arm64 build yet. Homebrew needs a url on
-      # every platform it loads the formula on, so this branch points
-      # at the amd64 asset and refuses here with something actionable
-      # instead of the bare "requires at least a URL" error.
-      if Hardware::CPU.arm?
-        odie "toast ships no Linux arm64 build yet; use: go install github.com/paradise-runner/toast/cmd/toast@latest"
-      end
+      artifact = "toast-linux-amd64"
+      artifact = "toast-linux-arm64" if Hardware::CPU.arm?
 
-      bin.install "toast-linux-amd64" => "toast"
+      bin.install artifact => "toast"
     end
   end
 end
