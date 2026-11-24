@@ -5,12 +5,12 @@
 class Toast < Formula
   desc "In-terminal IDE for quick file edits"
   homepage "https://github.com/paradise-runner/toast"
-  version "0.15.1"
+  version "0.15.2"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/paradise-runner/toast/releases/download/v0.15.1/toast-darwin-arm64.zip"
-      sha256 "4332fa4bdd3f3f82c0dad76a20b0eb70d60071689a1ffb9f20dd4ce1fb792413"
+      url "https://github.com/paradise-runner/toast/releases/download/v0.15.2/toast-darwin-arm64.zip"
+      sha256 "00d2dad48d2e238a1a4648ac52b90593f82422d3e9181e80a241f003fa5e3524"
 
       def install
         bin.install "toast-darwin-arm64" => "toast"
@@ -41,11 +41,11 @@ class Toast < Formula
   # the matching binary name, so arm64 never receives the amd64 build.
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/paradise-runner/toast/releases/download/v0.15.1/toast-linux-arm64.zip"
-      sha256 "87c5e3167f51ced98fbb46162aa0e370470da50fcac1b5e8a191acf4d1550566"
+      url "https://github.com/paradise-runner/toast/releases/download/v0.15.2/toast-linux-arm64.zip"
+      sha256 "f75d5a868fd3b28fb793b8481ce7e6d1fc7c8cc19107a65b1c249bdf837b21b2"
     else
-      url "https://github.com/paradise-runner/toast/releases/download/v0.15.1/toast-linux-amd64.zip"
-      sha256 "3f8083259cf5664ff2c492f6cc7210ab85e5045fe38ff6bce874fdae8033d74e"
+      url "https://github.com/paradise-runner/toast/releases/download/v0.15.2/toast-linux-amd64.zip"
+      sha256 "a7fcf7917c31f294bb80cfb5fd32e0a96a98213974354267588ff2d9236f5db0"
     end
 
     def install
